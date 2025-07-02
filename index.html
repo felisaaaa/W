@@ -7,6 +7,19 @@
   <title>for jagi-ya</title>
   <link rel="icon" href="https://i.ibb.co.com/hXZsYxZ/heart.png">
   <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 1s ease forwards;
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -143,11 +156,11 @@
   </div>
 
   <div class="page" id="page1">
-    <img src="1.gif" alt="Cute Icon" />
-    <h1>Happy birthday <span class="highlight">wiji-ku sayanggg ˶ᵔ ᵕ ᵔ˶ ♡</span></h1>
-    <p>eitss masih ada lagi nih, klik kalo mau liat ✨</p>
-    <button class="button" onclick="goToPage(2)">tap ‹𝟹</button>
-  </div>
+  <img src="1.gif" alt="Cute Icon" id="imgPage1" />
+  <h1 id="titlePage1">Selamat Ulang Tahun <span class="highlight">wiji-ku sayanggg ˶ᵔ ᵕ ᵔ˶ ♡</span></h1>
+  <p id="descPage1">eitss masih ada lagi loh, klik kalo mau liat ✨</p>
+  <button class="button" id="btnPage1" onclick="goToPage(2)">tap ‹𝟹</button>
+</div>
 
   <div class="page" id="page2">
     <img src="write.gif" alt="Envelope" />
@@ -187,15 +200,31 @@ with all of my love,
       const intro = document.getElementById('intro');
       const page1 = document.getElementById('page1');
       const music = document.getElementById("bg-music");
-
+    
       intro.classList.remove('active');
       page1.classList.add('active');
-
-      // Unmute dan mainkan musik saat user konfirmasi "iya"
+    
       if (music.muted) {
         music.muted = false;
         music.play().catch(e => console.log("Autoplay blocked:", e));
       }
+    
+      animatePage1Elements(); // animasi elemen muncul pelan-pelan
+    }
+
+    function animatePage1Elements() {
+      const elements = [
+        document.getElementById("imgPage1"),
+        document.getElementById("titlePage1"),
+        document.getElementById("descPage1"),
+        document.getElementById("btnPage1")
+      ];
+    
+      elements.forEach((el, index) => {
+        el.classList.remove("fade-in"); // reset if needed
+        el.style.animationDelay = `${index * 1.2}s`; // jeda animasi tiap elemen
+        el.classList.add("fade-in");
+      });
     }
 
     function goToPage(pageNum) {
