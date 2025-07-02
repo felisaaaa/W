@@ -222,7 +222,7 @@ with all of my love,
     
       elements.forEach((el, index) => {
         el.classList.remove("fade-in"); // reset if needed
-        el.style.animationDelay = `${index * 1.2}s`; // jeda animasi tiap elemen
+        el.style.animationDelay = `${index * 1.7}s`; // jeda animasi tiap elemen
         el.classList.add("fade-in");
       });
     }
@@ -245,6 +245,7 @@ with all of my love,
         typeText(fullLetter, document.getElementById('letterText'), 85);
         startFallingSymbols();
       }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function typeText(text, element, speed) {
