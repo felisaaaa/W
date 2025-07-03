@@ -33,31 +33,22 @@
       overflow: auto;
     }
 
-    .intro-note {
-      font-size: 1rem;
-      margin-top: 10px;
-      color: #1e3a8a;
-    }
     .page {
-      height: 100vh;
-      width: 100vw;
+      min-height: 100vh;
+      width: 100%;
       position: absolute;
+      justify-content: center;
       top: 0;
       left: 0;
-      display: flex;
+      display: none; /* default disembunyikan */
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       text-align: center;
       padding: 20px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 1s ease;
+      background-color: white;
     }
-
     .page.active {
-      opacity: 1;
-      pointer-events: auto;
+      display: flex;
     }
 
     h1 {
@@ -117,11 +108,11 @@
     }
 
     .blue-heart {
-      color: #3a5399;
+      color: #ff4554;
     }
 
     .yellow-star {
-      color: #facc15;
+      color: #ffe26e;
     }
 
     @keyframes fall {
@@ -153,22 +144,20 @@
 </head>
 <body>
     <div class="page active" id="intro">
-    <h1>Jagi-ya, is that you?</h1>
-    <p>kalau iya, set volume kamu min 35% ya~</p>
-    <p class="intro-note">kalau iya, set volume kamu min 35% ya~</p>
-    <div style="margin-top: 20px;">
-      <button class="button" onclick="startExperience()">iya!</button>
+    <h1>jagi-ya .. is that you ?</h1>
+    <p>kalau iya, set volume kamu minimal 35% ya !</p>
+    <div>
+      <button class="button" onclick="startExperience()">iya !</button>
       <button class="button" style="background-color: gray; margin-left: 10px;" onclick="alert('maaf! ini bukan buat kamu~')">bukan</button>
     </div>
-      <audio id="bg-music" src="love.mp3" autoplay loop muted></audio>
   </div>
 
   <div class="page" id="page1">
-  <img src="1.gif" alt="Cute Icon" id="imgPage1" />
-  <h1 id="titlePage1">Selamat ulang tahun <span class="highlight">wiji-ku sayang ˶ᵔ ᵕ ᵔ˶ ♡</span></h1>
-  <p id="descPage1">eitss masih ada lagi loh, klik kalo mau liat ✨</p>
-  <button class="button" id="btnPage1" onclick="goToPage(2)">tap ‹𝟹</button>
-</div>
+    <img src="1.gif" alt="Cute Icon" id="imgPage1" />
+    <h1 id="titlePage1">Happy birthday <span class="highlight">uri-wiji ˶ᵔ ᵕ ᵔ˶ ♡</span></h1>
+    <p id="descPage1">eitss masih ada lagi nih , klik ya ✨</p>
+    <button class="button" id="btnPage1" onclick="goToPage(2)">tap ‹𝟹</button>
+  </div>
 
   <div class="page" id="page2">
     <img src="write.gif" alt="Envelope" />
@@ -182,16 +171,26 @@
     <div class="letter" id="letterText"></div>
 </div>
 
+  <audio id="bg-music" src="love.mp3" autoplay loop muted></audio>
+
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    const fullLetter = `happy birthday, jagi-ya! 💙
-udah hampir 4 tahun ya kita sedeket ini, sejak masa PKL waktu SMK di lampung dulu. waktu cepet banget.
-meski kita berjauhan sekarang, kamu tetap jadi satu-satunya orang yang selalu aku inget dan paling aku rinduin terus.
-makasih ya udah bertahan sejauh ini, makasih udah tetap ada sampai sekarang. aku banggaaaaa banget sama kamu. nggak banyak yang bisa aku bilang, tapi kamu tahu sendiri seberapa berharganya kamu buatku. aku nggak selalu bisa ungkapin, tapi aku selalu sayang kamu—dengan cara aku sendiri.
-aku bersyukur banget pernah kenal kamu. nggak cuma karena kamu selalu ada, tapi juga karena kamu bikin aku ngerasa aman jadi diri sendiri—ngerasa ada yang 'mengerti' aku. kamu selalu dengerin aku cerita tanpa ngejudge, dan itu nggak pernah aku temuin di siapa pun, selain kamu.
-jujur aja, kamu tuh salah satu alasan paling besar kenapa aku bisa bertahan sampai sekarang. kalau ditanya tujuan hidupku ke depan... ya kamu. tapi aku bilang ini bukan buat bikin kamu ngerasa terbebani, sama sekali nggak. aku cuma pengin kamu tahu seberapa berharganya kamu buatku. dan aku juga berharap... semoga aku bisa jadi seseorang yang berarti juga buat kamu.
-aku juga selalu seneng tiap kita mabar minecraft… ngebangun rumah di world survival kita, terus mati dibunuh monster pas mining di goa, nyari axolotl, terus.. inget gak kita pernah mau ngebuat menara penjarah jadi rumah kita? itu kocak banget sih, penjarah nya spawn terus hahahah😭.
-semoga hari ini (dan hari-hari seterusnya) selalu ngebawa kamu ke hal-hal yang tenang, hangat, dan tulus ya. kamu pantas dapet itu semua. aku nggak sabar banget ketemu kamu lagi... antara agustus atau september nanti, semoga beneran kejadian. kita udah nunggu cukup lama, aku mau peluk kamu lagi, hehe.
+    const fullLetter = `selamat ulang tahun, wiji .ᐟ 💙
+
+udah hampir 4 tahun aja ya kita temenan, semenjak masa pkl waktu smk di lampung dulu. waktu cepet banget.
+
+walaupun kita berjauhan sekarang, kamu tetap jadi satu-satunya orang yang selalu aku inget dan paling aku rinduin.
+
+makasih yaaa udah bertahan sejauh ini, makasih udah tetap ada sampai sekarang. aku banggaaaaa banget sama kamu, lebih dari yang bisa aku bilang. aku nggak selalu pandai mengungkapkan, tapi percayalah, aku selalu sayang kamu .. dengan cara aku sendiri.
+
+aku bersyukur banget bisa kenal kamu. bukan cuma karena kamu selalu ada, tapi juga karena sama kamu aku ngerasa aman buat jadi diri sendiri — ngerasa .. ada yang ngerti aku. sama kamu .. aku selalu ngerasa didengar, tanpa dihakimi. dan itu nggak pernah aku temuin di siapapun, selain kamu.
+
+jujur aja, kamu tuh salah satu alasan paling besar kenapa aku bisa bertahan sampai sekarang. kalau ditanya tujuan hidupku ke depan .. ya kamu. tapi jangan takut ya, aku bilang ini bukan buat bikin kamu ngerasa terbebani, aku cuma pengin kamu tahu betapa berharganya kamu buatku, juga buat orang-orang di sekitarmu. dan semoga .. aku bisa jadi seseorang yang berarti juga buat kamu.
+
+aku juga selalu seneng tiap kita mabar minecraft .. ngebangun rumah di world survival kita, mati konyol dibunuh monster pas mining di goa, kejar-kejaran sama ikan dan axolotl, terus.. inget gak kita pernah mau ngebuat menara penjarah jadi rumah kita? itu kocak banget sih, penjarah nya spawn terus hahahah.
+
+wiji .. semoga hari ini (dan hari-hari seterusnya) selalu ngebawa kamu ke hal-hal yang tenang, hangat, dan tulus ya. kamu pantas dapet itu semua. aku nggak sabar banget ketemu kamu lagi .. antara agustus atau september nanti, semoga beneran kejadian. kita udah nunggu cukup lama, aku mau peluk kamu lagi, hehe.
+
 10 Juli 2025
 with all of my love,
 𝜗𝜚 felisa >⩊<`;
@@ -222,12 +221,15 @@ with all of my love,
 
       elements.forEach((el, index) => {
         el.classList.remove("fade-in"); // reset if needed
-        el.style.animationDelay = `${index * 1.7}s`; // jeda animasi tiap elemen
+        el.style.animationDelay = `${index * 2.0}s`; // jeda animasi tiap elemen
         el.classList.add("fade-in");
       });
     }
 
     function goToPage(pageNum) {
+      if (pageNum !== 3) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
       const pages = document.querySelectorAll('.page');
       pages.forEach(p => p.classList.remove('active'));
       const next = document.getElementById(`page${pageNum}`);
@@ -244,8 +246,10 @@ with all of my love,
         confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
         typeText(fullLetter, document.getElementById('letterText'), 85);
         startFallingSymbols();
+        setTimeout(() => {
+          document.getElementById('page3').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 500);
       }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function typeText(text, element, speed) {
